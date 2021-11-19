@@ -7,7 +7,6 @@ from typing import Optional
 
 
 def main():
-    1/0
     git_branch_name = current_git_branch_name()
     print('blablabla', git_branch_name)
     issue_key = extract_issue_key(git_branch_name)
