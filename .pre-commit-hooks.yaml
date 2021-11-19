@@ -1,6 +1,6 @@
--   id: auto-smart-commit
-    name: Auto Jira smart commit
-    description: Automatically transform your Git commit messages into Jira smart commits
+-   id: autoformat-commit-msg
+    name: Git message autoformat
+    description: Automatically reformat your Git commit messages
     entry: auto-smart-commit.py
     language: script
     stages: [prepare-commit-msg]
