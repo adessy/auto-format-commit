@@ -8,9 +8,9 @@ from typing import Optional
 
 def main():
     git_branch_name = current_git_branch_name()
-    print(git_branch_name)
+    print('blablabla', git_branch_name)
     issue_key = extract_issue_key(git_branch_name)
-    print(issue_key)
+    print('bliblibli', issue_key)
 
     if not issue_key:
         sys.exit(0)
