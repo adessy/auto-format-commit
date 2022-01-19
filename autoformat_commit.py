@@ -45,7 +45,8 @@ def reformat_msg(commit_msg: str, issue_key: str) -> str:
 
 
 def reformat_subject(subject: str, issue_key: str) -> str:
-    subject = subject.strip().capitalize().rstrip('.')
+    subject = subject.strip().rstrip('.')
+    subject = subject[0].upper() + subject[1:]
     return subject if extract_issue_key(subject) else f'{issue_key} {subject}'
 
 
