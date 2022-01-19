@@ -32,7 +32,7 @@ def run_command(command: str) -> str:
 
 
 def extract_issue_key(message: str) -> Optional[str]:
-    key_regex = "[A-Z]{2,}-[0-9]+"
+    key_regex = "[a-zA-Z]{2,}-[0-9]+"
     match = re.search(key_regex, message)
     return match.group(0) if match else None
 
@@ -52,6 +52,7 @@ def reformat_subject(subject: str, issue_key: str) -> str:
 
     subject = subject.strip().rstrip('.')
     subject = subject[0].upper() + subject[1:]
+    issue_key = issue_key.upper()
     return f'{issue_key} {subject}'
 
 def read_file(filepath: str) -> str:
