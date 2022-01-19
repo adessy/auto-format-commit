@@ -45,10 +45,14 @@ def reformat_msg(commit_msg: str, issue_key: str) -> str:
 
 
 def reformat_subject(subject: str, issue_key: str) -> str:
+    issue_key = extract_issue_key(subject) or issue_key
+
+    if subject.startswith(issue_key):
+        subject = subject[len(issue_key):]
+
     subject = subject.strip().rstrip('.')
     subject = subject[0].upper() + subject[1:]
-    return subject if extract_issue_key(subject) else f'{issue_key} {subject}'
-
+    return f'{issue_key} {subject}'
 
 def read_file(filepath: str) -> str:
     with open(filepath, "r") as f:
