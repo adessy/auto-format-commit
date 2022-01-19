@@ -1,36 +1,20 @@
-## Auto Jira smart commit
+## Auto Format commit
 
-This [pre-commit](https://pre-commit.com/) hook transforms your Git commit messages into [Jira smart commits](https://confluence.atlassian.com/fisheye/using-smart-commits-960155400.html).
+This [pre-commit](https://pre-commit.com/) hook automatically adds the issue key from the branch name to the commit message (if it is missing). It also slightly refomat the commit message along the way.
 
-If your branch name contains a [Jira issue key](https://confluence.atlassian.com/adminjiraserver073/changing-the-project-key-format-861253229.html) such as `ABC-123`, the hook will automatically format your commit message into a Jira smart commit:
+## Requirements
 
-| Command | Log entry |
-| ------- | --------- |
-| git commit -m "release the kraken." | ABC-123 Release the kraken<br><br>ABC-123 #time 0w 0d 2h 8m Release the kraken<br><br>_Effect:_ Logs the time since your last commit on any branch in the Work Log tab. |
-| git commit -m "Release the kraken<br><br>A kraken lives in dark depths, usually a sunken rift or a cavern filled with detritus, treasure, and wrecked ships." | ABC-123 Release the kraken<br><br>ABC-123 #comment A kraken lives in dark depths, usually a sunken rift or a cavern filled with detritus, treasure, and wrecked ships.<br><br>ABC-123 #time 0w 0d 2h 8m Release the kraken<br><br>_Effect:_ Posts a comment to the Jira issue and logs the time since your last commit in the Work Log tab. |
-
-If the branch name does not contain a Jira issue key, the commit message is not modified. The time logged takes into account non-working hours such as lunch breaks and nights.
-
-See [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) for an explanation of the seven rules of a great Git commit message:
-
-1. Separate subject from body with a blank line
-2. Limit the subject line to 50 characters
-3. Capitalize the subject line (automated)
-4. Do not end the subject line with a period (automated)
-5. Use the imperative mood in the subject line
-6. Wrap the body at 72 characters
-7. Use the body to explain what and why vs. how
+- Python 3
 
 ## Installation
 
-Add the following to your `.pre-commit-config.yaml` file:
-
+- Install `pre-commit`
+- Add the following snippet to `.pre-commit-config.yaml` file:
 ```yaml
 repos:
-  - repo: https://github.com/radix-ai/auto-smart-commit
-    rev: v1.0.2
+  - repo: https://github.com/adessy/auto-format-commit
+    rev: v0.0.1
     hooks:
-      - id: auto-smart-commit
+      - id: auto-format-commit
 ```
-
-and make sure to run `pre-commit install --hook-type prepare-commit-msg` to install the hook type necessary for this hook.
+- Run `pre-commit install -c .pre-commit-config.yaml --hook-type prepare-commit-msg`
