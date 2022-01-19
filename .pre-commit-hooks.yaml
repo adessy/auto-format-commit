@@ -1,4 +1,4 @@
--   id: autoformat-commit-msg
+-   id: auto-format-commit
     name: Git message autoformat
     description: Automatically reformat your Git commit messages
     entry: autoformat_commit.py
