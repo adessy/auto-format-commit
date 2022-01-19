@@ -9,7 +9,7 @@ This [pre-commit](https://pre-commit.com/) hook automatically adds the issue key
 ## Installation
 
 - Install `pre-commit`
-- Add the following snippet to `.pre-commit-config.yaml` file:
+- Add the following snippet to `.pre-commit-config.yaml` [file](https://pre-commit.com/#2-add-a-pre-commit-configuration):
 ```yaml
 repos:
   - repo: https://github.com/adessy/auto-format-commit
